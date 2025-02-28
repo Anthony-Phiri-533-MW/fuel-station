@@ -32,6 +32,15 @@ const RegisterPage: React.FC = () => {
     }
   };
 
+  const logout = async () => {
+    try {
+      await account.deleteSession("current");
+      setLoggedInUser(null);
+    } catch (error) {
+      console.error("Logout failed", error);
+    }
+  };
+  
   if (loggedInUser) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
