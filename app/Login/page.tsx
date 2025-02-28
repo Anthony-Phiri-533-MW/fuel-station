@@ -71,7 +71,7 @@ const LoginPage: React.FC = () => {
         <button className="w-full py-2 mb-2 bg-blue-500 text-white rounded-md hover:bg-blue-600" type="button" onClick={() => login(email, password)}>
           Login
         </button>
-        <p className="p-1">Don&apost have an account? <span><Link href={"/Register"}> Register</Link></span></p>
+        <p className="p-1">Dont have an account? <span><Link href={"/Register"}> Register</Link></span></p>
       </form>
     </div>
   );
