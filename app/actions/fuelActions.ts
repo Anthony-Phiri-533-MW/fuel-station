@@ -1,10 +1,10 @@
-import { databases } from "@/utils/appwrite";
+// import { databases } from "@/utils/appwrite";
 
-export async function addDoc(content: String): Promise<DocuM> {
-    const DocuM = {
-        content: "onw"
-    }
+// export async function addDoc(content: String): Promise<DocuM> {
+//     const DocuM = {
+//         content: "onw"
+//     }
 
-    return DocuM
+//     return DocuM
 
-}
+// }

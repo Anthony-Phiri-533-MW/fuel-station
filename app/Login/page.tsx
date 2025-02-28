@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
-import { account, ID } from "../../utils/appwrite";
+// import { account, ID } from "../../utils/appwrite";
+import { account} from "../../utils/appwrite";
 import Link from "next/link";
 
 interface User {
@@ -20,15 +21,6 @@ const LoginPage: React.FC = () => {
       setLoggedInUser(user);
     } catch (error) {
       console.error("Login failed", error);
-    }
-  };
-
-  const register = async () => {
-    try {
-      await account.create(ID.unique(), email, password, name);
-      login(email, password);
-    } catch (error) {
-      console.error("Registration failed", error);
     }
   };
 
@@ -79,7 +71,7 @@ const LoginPage: React.FC = () => {
         <button className="w-full py-2 mb-2 bg-blue-500 text-white rounded-md hover:bg-blue-600" type="button" onClick={() => login(email, password)}>
           Login
         </button>
-        <p className="p-1">Don't have an account? <span><Link href={"/Register"}> Register</Link></span></p>
+        <p className="p-1">Don&apost have an account? <span><Link href={"/Register"}> Register</Link></span></p>
       </form>
     </div>
   );
