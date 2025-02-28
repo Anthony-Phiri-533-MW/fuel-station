@@ -1,18 +1,30 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // import { account, ID } from "../../utils/appwrite";
 import { account} from "../../utils/appwrite";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 interface User {
   name: string;
 }
+
+// export const logout = async () => {
+//   try {
+//     await account.deleteSession("current");
+//     setLoggedInUser(null);
+//   } catch (error) {
+//     console.error("Logout failed", error);
+//   }
+// };
 
 const LoginPage: React.FC = () => {
   const [loggedInUser, setLoggedInUser] = useState<User | null>(null);
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [name, setName] = useState<string>("");
+
+  const router = useRouter();
 
   const login = async (email: string, password: string) => {
     try {
@@ -33,10 +45,17 @@ const LoginPage: React.FC = () => {
     }
   };
 
+  // useEffect(() => {
+  //   if (loggedInUser) {
+  //     router.push("/Main");
+  //   }
+  // }, [loggedInUser, router]);
+
   if (loggedInUser) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
         <p className="text-lg font-semibold">Logged in as {loggedInUser.name}</p>
+        <h1 className="text-xl"><Link href="/Dashboard">Go to dashboard</Link></h1>
         <button className="mt-4 px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600" type="button" onClick={logout}>
           Logout
         </button>
