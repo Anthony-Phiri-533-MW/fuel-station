@@ -1,9 +1,10 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+// import { useEffect, useState } from "react";
 // import { account, ID } from "../../utils/appwrite";
 import { account} from "../../utils/appwrite";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 
 interface User {
   name: string;
@@ -24,7 +25,7 @@ const LoginPage: React.FC = () => {
   const [password, setPassword] = useState<string>("");
   const [name, setName] = useState<string>("");
 
-  const router = useRouter();
+  // const router = useRouter();
 
   const login = async (email: string, password: string) => {
     try {
